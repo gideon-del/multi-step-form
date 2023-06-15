@@ -19,6 +19,10 @@ export default {
         magnolia: "hsl(217, 100%, 97%)",
         alabaster: "hsl(231, 100%, 99%)",
       },
+      backgroundImage: {
+        desktop: "var(--desk)",
+        mobile: "var(--mob)",
+      },
     },
   },
   plugins: [],
