@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 const Inputs = ({ type, name, placeholder, title }) => {
   return (
@@ -11,10 +11,10 @@ const Inputs = ({ type, name, placeholder, title }) => {
         id={name}
         name={name}
         placeholder={placeholder}
-        className="border border-coolGray max-w-xl px-4 py-2 rounded-lg focus-within:outline-none focus-within:border-marineBlue transition  text-marineBlue shadow-sm"
+        className="border border-coolGray  px-4 py-2 rounded-lg focus-within:outline-none focus-within:border-marineBlue transition  text-marineBlue shadow-sm"
       />
     </div>
   );
 };
 
-export default Inputs;
+export default memo(Inputs);

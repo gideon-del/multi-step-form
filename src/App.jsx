@@ -43,92 +43,31 @@ function App() {
                 </div>
               </div>
             ))}
-            {/* <div className="flex gap-4 px-10 items-center justify-start ">
-              <span className="bg-ligthBlue md:text-2xl p-6 w-8 h-8 rounded-full  flex items-center justify-center">
-                1
-              </span>
-              <div>
-                <p
-                  className="font-Regular text-ligthGray uppercase
-                "
-                >
-                  Step 1
-                </p>
-                <p className="font-Bold uppercase text-white text-lg">
-                  Your info
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4 px-10 items-center justify-start ">
-              <span className="border border-white text-white md:text-2xl p-6 w-8 h-8 rounded-full  flex items-center justify-center">
-                2
-              </span>
-              <div>
-                <p
-                  className="font-Regular text-ligthGray uppercase
-                "
-                >
-                  Step 2
-                </p>
-                <p className="font-Bold uppercase text-white text-lg">
-                  select plan
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4 px-10 items-center justify-start ">
-              <span className="border border-white text-white md:text-2xl p-6 w-8 h-8 rounded-full  flex items-center justify-center">
-                3
-              </span>
-              <div>
-                <p
-                  className="font-Regular text-ligthGray uppercase
-                "
-                >
-                  Step 3
-                </p>
-                <p className="font-Bold uppercase text-white text-lg">
-                  Add-ons
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4 px-10 items-center justify-start ">
-              <span className="border border-white text-white md:text-2xl p-6 w-8 h-8 rounded-full  flex items-center justify-center">
-                4
-              </span>
-              <div>
-                <p
-                  className="font-Regular text-ligthGray uppercase
-                "
-                >
-                  Step 4
-                </p>
-                <p className="font-Bold uppercase text-white text-lg">
-                  summary
-                </p>
-              </div>
-            </div> */}
           </section>
         </section>
         <section className=" flex-1 px-6 md:px-14 lg:px-28 md:pt-10 bg-ligthBlue md:bg-white">
-          <div className="lg:max-w-xl md:h-full flex flex-col bg-white px-4 py-3 w-full rounded-lg relative -top-10">
-            <h1 className="font-Bold text-marineBlue text-xl md:text-4xl">
-              Personal info
-            </h1>
-            <p className="text-coolGray font-Regular md:mt-3 mt-1">
-              Please provide your name, email address, and phone number
-            </p>
-            <form className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 flex-1">
-              {firstInputs.map((input) => (
-                <Inputs key={input.title} {...input} />
-              ))}
-            </form>
-          </div>
+          <section className="flex lg:max-w-3xl flex-col justify-between h-full">
+            <div className=" md:h-full flex flex-col bg-white px-4 py-3 w-full rounded-lg relative -top-10">
+              <h1 className="font-Bold text-marineBlue text-xl md:text-4xl">
+                Personal info
+              </h1>
+              <p className="text-coolGray font-Regular md:mt-3 mt-1">
+                Please provide your name, email address, and phone number
+              </p>
+              <form className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 flex-1">
+                {firstInputs.map((input) => (
+                  <Inputs key={input.title} {...input} />
+                ))}
+              </form>
+            </div>
+            <div className=" flex justify-between  items-center">
+              <button className="text-coolGray">Go Back</button>
+              <button className="bg-marineBlue font-Bold text-white px-6 py-3 after:transition-all after:duration-300 after:ease-in-out relative rounded-md ml-auto  mt-3 mb-2 after:bg-white after:absolute after:inset-0 after:opacity-0 hover:after:opacity-40">
+                Next Step
+              </button>
+            </div>
+          </section>
         </section>
-        <div className="sticky  right-4 flex justify-end self-end">
-          <button className="bg-marineBlue font-Bold text-white px-6 py-3 after:transition-all after:duration-300 after:ease-in-out rounded-md ml-auto  mt-3 mb-2 after:bg-white after:absolute after:inset-0 after:opacity-0 hover:after:opacity-40">
-            Next Step
-          </button>
-        </div>
       </main>
     </>
   );
