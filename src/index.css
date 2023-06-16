@@ -17,6 +17,9 @@
   src: local("Unbuntu-Regular"),
     url("./assets/fonts/Ubuntu-Regular.ttf") format("truetype");
 }
+body {
+  @apply bg-ligthBlue;
+}
 @layer components {
   .stack {
     @apply grid grid-cols-1 grid-rows-1;
@@ -27,5 +30,8 @@
   }
   .activeStep {
     @apply bg-ligthBlue;
+  }
+  #root {
+    @apply md:grid  md:min-h-screen;
   }
 }
