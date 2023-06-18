@@ -55,7 +55,7 @@ function App() {
                 You have the option of monthly or yearly billing
               </p>
               <form className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 ">
-                <div className="flex flex-row">
+                <div className="flex flex-row gap-5 md:gap-7 lg:gap-10">
                   <div className="pr-20 pl-5 aspect-square border-coolGray border w-fit py-6 rounded-lg cursor-pointer">
                     <img src={acrade} />
                     <h1 className="flex flex-col gap-3 mt-9">
@@ -78,7 +78,7 @@ function App() {
                     </h1>
                   </div>
                 </div>
-                <div className="bg-ligthBlue py-3 px-3 flex flex-row">
+                <div className="bg-ligthBlue py-3 px-3 flex flex-row justify-center items-center gap-5 md:gap-7 lg:gap-10">
                   <p>Monthly</p>
                   <div>
                     <input
@@ -88,19 +88,13 @@ function App() {
                       className="hidden"
                     />
                     <label
-                      className={`w-20 flex items-center   h-5 py-3 rounded-full bg-marineBlue ${
+                      className={`w-16 flex items-center ${
                         checked ? "justify-end" : "justify-start"
-                      }`}
+                      } h-5 py-3 rounded-full bg-marineBlue cursor-pointer relative after:absolute after:w-1/4 after:h-3/4 after:rounded-full after:bg-white after:inset-y-auto after:transition-all transition-all duration-1000 after:duration-500 ease-in-out after:ease-out after:mx-1`}
                       onClick={() => setChecked((prev) => !prev)}
-                    >
-                      <div className={`translate-x-2/4 w-full`}>
-                        <span
-                          className={` inline-block h-5 transition-all duration-500 ease-in aspect-square  rounded-full my-1 bg-white`}
-                        ></span>
-                        <span></span>
-                      </div>
-                    </label>
+                    ></label>
                   </div>
+                  <p className="text-coolGray">Yearly</p>
                 </div>
               </form>
             </div>
