@@ -60,3 +60,23 @@ export const plans = [
     yearly: "$150/yr",
   },
 ];
+export const addons = [
+  {
+    id: "add1",
+    title: "Online service",
+    desc: "Access to multiplayer games",
+    price: "+$1/mo",
+  },
+  {
+    id: "add2",
+    title: "larger storage",
+    desc: "extra 1TB of cloud save",
+    price: "+$2/mo",
+  },
+  {
+    id: "add3",
+    title: "customizable profile",
+    desc: "custom theme on your profile",
+    price: "+$2/mo",
+  },
+];
