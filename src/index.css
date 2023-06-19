@@ -32,6 +32,6 @@ body {
     @apply bg-ligthBlue;
   }
   #root {
-    @apply md:grid  md:min-h-screen;
+    @apply md:flex justify-center items-center md:min-h-screen;
   }
 }
