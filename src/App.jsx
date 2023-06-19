@@ -1,13 +1,17 @@
 import { useState } from "react";
 import bgDesk from "./assets/images/bg-sidebar-desktop.svg";
 import bgMob from "./assets/images/bg-sidebar-mobile.svg";
-import { steps } from "./data";
+import { plans, steps } from "./data";
 import acrade from "./assets/images/icon-arcade.svg";
 import FirstStep from "./components/FirstStep";
 function App() {
   const [cuurentStep, setCurrentStep] = useState(1);
   const [checked, setChecked] = useState(false);
-
+  const time = checked ? "yearly" : "monthly";
+  const [currentPlan, setCurrentPlan] = useState(0);
+  const togglePlan = (plan) => {
+    setCurrentPlan(plan);
+  };
   return (
     <>
       <main className="font-Medium  md:px-2 md:py-2 m-auto flex flex-col md:flex-row  relative bg-white rounded-lg inset-0 max-w-7xl w-fit">
@@ -56,8 +60,32 @@ function App() {
                 You have the option of monthly or yearly billing
               </p>
               <form className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 ">
-                <div className="flex flex-row gap-5 md:gap-7 lg:gap-10">
-                  <div className="pr-10 pl-5 aspect-square border-coolGray border w-fit py-6 rounded-lg cursor-pointer">
+                <div className="flex  gap-5 md:gap-7 lg:gap-10">
+                  {plans.map((plan, i) => (
+                    <div
+                      className={`pr-10 pl-5 aspect-square ${
+                        i === currentPlan
+                          ? "border-marineBlue"
+                          : "border-coolGray"
+                      } border w-fit py-6 rounded-lg hover:border-marineBlue transition cursor-pointer flex-1`}
+                      key={plan.title}
+                      onClick={() => togglePlan(i)}
+                    >
+                      <img src={plan.img} />
+                      <h1 className="flex flex-col gap-3 mt-9 font-Bold text-marineBlue mb-1">
+                        {plan.title}
+                        <span className="text-coolGray font-Regular">
+                          {plan[time]}
+                        </span>
+                      </h1>
+                      {time === "yearly" && (
+                        <p className="font-Medium md:text-base text-marineBlue">
+                          2 months free
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                  {/* <div className="pr-10 pl-5 aspect-square border-coolGray border w-fit py-6 rounded-lg cursor-pointer">
                     <img src={acrade} />
                     <h1 className="flex flex-col gap-3 mt-9 font-Bold text-marineBlue mb-1">
                       {" "}
@@ -81,7 +109,7 @@ function App() {
                       {" "}
                       Acrade <span>$9/mo</span>
                     </h1>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="bg-ligthBlue py-3 px-3 flex flex-row justify-center items-center gap-5 md:gap-7 lg:gap-10">
                   <p>Monthly</p>
@@ -105,7 +133,9 @@ function App() {
             </div>
 
             <div className=" flex justify-between  items-center">
-              <button className="text-coolGray">Go Back</button>
+              <button className="text-coolGray hover:text-marineBlue transition">
+                Go Back
+              </button>
               <button className="bg-marineBlue font-Bold text-white px-6 py-3 after:transition-all after:duration-300 after:ease-in-out relative rounded-md ml-auto  mt-3 mb-2 after:bg-white after:absolute after:inset-0 after:opacity-0 hover:after:opacity-40">
                 Next Step
               </button>
