@@ -7,6 +7,7 @@ import FirstStep from "./components/FirstStep";
 function App() {
   const [cuurentStep, setCurrentStep] = useState(1);
   const [checked, setChecked] = useState(false);
+
   return (
     <>
       <main className="font-Medium  md:px-2 md:py-2 m-auto flex flex-col md:flex-row  relative bg-white rounded-lg inset-0 max-w-7xl w-fit">
@@ -56,12 +57,16 @@ function App() {
               </p>
               <form className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 ">
                 <div className="flex flex-row gap-5 md:gap-7 lg:gap-10">
-                  <div className="pr-20 pl-5 aspect-square border-coolGray border w-fit py-6 rounded-lg cursor-pointer">
+                  <div className="pr-10 pl-5 aspect-square border-coolGray border w-fit py-6 rounded-lg cursor-pointer">
                     <img src={acrade} />
-                    <h1 className="flex flex-col gap-3 mt-9">
+                    <h1 className="flex flex-col gap-3 mt-9 font-Bold text-marineBlue mb-1">
                       {" "}
-                      Acrade <span>$9/mo</span>
+                      Acrade{" "}
+                      <span className="text-coolGray font-Regular">$9/mo</span>
                     </h1>
+                    <p className="font-Medium md:text-base text-marineBlue">
+                      2 months free
+                    </p>
                   </div>
                   <div className="pr-20 pl-5 aspect-square border-coolGray border w-fit py-6 rounded-lg cursor-pointer">
                     <img src={acrade} />

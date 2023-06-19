@@ -1,3 +1,6 @@
+import acrade from "./assets/images/icon-arcade.svg";
+import advanced from "./assets/images/icon-advanced.svg";
+import pro from "./assets/images/icon-pro.svg";
 export const firstInputs = [
   {
     name: "name",
@@ -34,5 +37,26 @@ export const steps = [
   {
     title: "summary",
     complete: false,
+  },
+];
+
+export const plans = [
+  {
+    img: acrade,
+    title: "Acrade",
+    monthly: "$9/mo",
+    yearly: "$90/yr",
+  },
+  {
+    img: advanced,
+    title: "Advanced",
+    monthly: "$12/mo",
+    yearly: "$120/yr",
+  },
+  {
+    img: pro,
+    title: "Pro",
+    monthly: "$15/mo",
+    yearly: "$150/yr",
   },
 ];
