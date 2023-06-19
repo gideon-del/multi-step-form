@@ -17,28 +17,32 @@ const SecondStep = () => {
         You have the option of monthly or yearly billing
       </p>
       <form className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 ">
-        <div className="flex  gap-5 md:gap-7 lg:gap-10">
+        <div className="flex  gap-5 md:gap-7 lg:gap-10 flex-col md:flex-row">
           {plans.map((plan, i) => (
             <div
-              className={`pr-10 pl-5 aspect-square ${
+              className={`md:pr-10 md:pl-5 px-4 md:aspect-square ${
                 i === currentPlan ? "border-marineBlue" : "border-coolGray"
-              } border w-fit py-6 rounded-lg hover:border-marineBlue transition cursor-pointer flex-1`}
+              } border md:w-fit md:py-6 flex md:flex-col items-start rounded-lg hover:border-marineBlue transition cursor-pointer flex-1 py-2 gap-6`}
               key={plan.title}
               onClick={() => togglePlan(i)}
             >
               <img src={plan.img} />
-              <h1 className="flex flex-col gap-3 mt-9 font-Bold text-marineBlue mb-1">
-                {plan.title}
-                <span className="text-coolGray font-Regular">{plan[time]}</span>
-              </h1>
+              <div>
+                <h1 className="flex flex-col md:gap-3 gap-1 md:mt-9 font-Bold text-marineBlue md:mb-1">
+                  {plan.title}
+                  <span className="text-coolGray font-Regular">
+                    {plan[time]}
+                  </span>
+                </h1>
 
-              <p
-                className={`font-Medium md:text-base text-marineBlue ${
-                  time !== "yearly" && "opacity-0 "
-                }`}
-              >
-                2 months free
-              </p>
+                <p
+                  className={`font-Medium md:text-base text-marineBlue ${
+                    time !== "yearly" && "opacity-0"
+                  } `}
+                >
+                  2 months free
+                </p>
+              </div>
             </div>
           ))}
         </div>

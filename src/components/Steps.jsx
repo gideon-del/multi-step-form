@@ -15,7 +15,10 @@ const Steps = () => {
       </picture>
       <section className=" md:pt-10 flex gap-5 items-center justify-center md:flex-col md:justify-start md:gap-10 md:items-start md:pl-7">
         {steps.map((step, i) => (
-          <div className="flex gap-4  items-center justify-start cursor-pointer">
+          <div
+            className="flex gap-4  items-center justify-start cursor-pointer"
+            key={step.title}
+          >
             <span
               className={`${
                 i === cuurentStep
