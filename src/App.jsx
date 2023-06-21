@@ -1,6 +1,7 @@
 import Steps from "./components/Steps";
 import Footer from "./components/Footer";
-import FourthStep from "./components/FourthStep";
+import FirstStep from "./components/FirstStep";
+
 function App() {
   return (
     <>
@@ -8,7 +9,7 @@ function App() {
         <Steps />
         <section className=" flex-1 px-3 md:px-14 lg:px-18 md:pt-10 bg-ligthBlue md:bg-white w-fit">
           <section className="flex lg:max-w-3xl flex-col justify-between h-full">
-            <FourthStep />
+            <FirstStep />
             <Footer />
           </section>
         </section>
