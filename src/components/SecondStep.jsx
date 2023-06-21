@@ -16,7 +16,7 @@ const SecondStep = () => {
       <p className="text-coolGray font-Regular md:mt-3 mt-1">
         You have the option of monthly or yearly billing
       </p>
-      <form className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 ">
+      <div className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 ">
         <div className="flex  gap-5 md:gap-7 lg:gap-10 flex-col md:flex-row">
           {plans.map((plan, i) => (
             <div
@@ -59,7 +59,7 @@ const SecondStep = () => {
           </div>
           <p className="text-coolGray">Yearly</p>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

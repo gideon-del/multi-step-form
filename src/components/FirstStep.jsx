@@ -1,8 +1,7 @@
-import React from "react";
 import Inputs from "./Inputs";
 import { firstInputs } from "../data";
 
-const FirstStep = () => {
+const FirstStep = ({ onSubmit }) => {
   return (
     <div className=" md:h-full flex flex-col bg-white px-4 py-3 w-full rounded-lg relative -top-10">
       <h1 className="font-Bold text-marineBlue text-xl md:text-4xl">
@@ -11,7 +10,10 @@ const FirstStep = () => {
       <p className="text-coolGray font-Regular md:mt-3 mt-1">
         Please provide your name, email address, and phone number
       </p>
-      <form className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 flex-1">
+      <form
+        className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 flex-1"
+        onSubmit={onSubmit}
+      >
         {firstInputs.map((input) => (
           <Inputs key={input.title} {...input} />
         ))}

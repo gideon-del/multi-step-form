@@ -10,11 +10,11 @@ const ThirdStep = () => {
       <p className="text-coolGray font-Regular md:mt-3 mt-1">
         Add-ons help enhance your gaming experience.
       </p>
-      <form className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 ">
+      <div className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 ">
         {addons.map((add) => (
           <AddOns key={add.id} {...add} />
         ))}
-      </form>
+      </div>
     </div>
   );
 };
