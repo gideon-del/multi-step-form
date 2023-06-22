@@ -1,11 +1,12 @@
 import Steps from "./components/Steps";
 import Footer from "./components/Footer";
 import FirstStep from "./components/FirstStep";
+import { useRef } from "react";
 
 function App() {
-  const submit = (e) => {
-    e.preventDefault();
-    const data = new FormData(e.target);
+  const currentRef = useRef(null);
+  const submit = () => {
+    const data = new FormData(currentRef.current);
     console.log(data);
   };
   return (
@@ -14,8 +15,8 @@ function App() {
         <Steps />
         <section className=" flex-1 px-3 md:px-14 lg:px-18 md:pt-10 bg-ligthBlue md:bg-white w-fit">
           <div className="flex lg:max-w-3xl flex-col justify-between h-full">
-            <FirstStep onSubmit={submit} />
-            <Footer />
+            <FirstStep onSubmit={submit} ref={currentRef} />
+            <Footer onClick={submit} />
           </div>
         </section>
       </main>

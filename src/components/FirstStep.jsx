@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 import Inputs from "./Inputs";
 import { firstInputs } from "../data";
+import React from "react";
 
-const FirstStep = ({ onSubmit }) => {
+const FirstStep = ({ onSubmit }, ref) => {
   return (
     <div className=" md:h-full flex flex-col bg-white px-4 py-3 w-full rounded-lg relative -top-10">
       <h1 className="font-Bold text-marineBlue text-xl md:text-4xl">
@@ -13,6 +15,7 @@ const FirstStep = ({ onSubmit }) => {
       <form
         className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 flex-1"
         onSubmit={onSubmit}
+        ref={ref}
       >
         {firstInputs.map((input) => (
           <Inputs key={input.title} {...input} />
@@ -22,4 +25,4 @@ const FirstStep = ({ onSubmit }) => {
   );
 };
 
-export default FirstStep;
+export default React.forwardRef(FirstStep);
