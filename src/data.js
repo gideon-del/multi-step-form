@@ -3,7 +3,7 @@ import advanced from "./assets/images/icon-advanced.svg";
 import pro from "./assets/images/icon-pro.svg";
 export const firstInputs = [
   {
-    name: "name",
+    name: "fullName",
     title: "Name",
     placeholder: "e.g Stephen King",
     type: "text",
@@ -15,7 +15,7 @@ export const firstInputs = [
     type: "email",
   },
   {
-    name: "phone",
+    name: "phoneNum",
     title: "Phone Number",
     placeholder: "e.g +1 234 567 890",
     type: "text",

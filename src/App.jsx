@@ -6,8 +6,9 @@ import { useRef } from "react";
 function App() {
   const currentRef = useRef(null);
   const submit = () => {
+    console.log(currentRef);
     const data = new FormData(currentRef.current);
-    console.log(data);
+    const val = Object.fromEntries(data.entries());
   };
   return (
     <>
