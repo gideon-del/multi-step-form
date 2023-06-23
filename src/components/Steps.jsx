@@ -2,8 +2,7 @@ import { useState } from "react";
 import { steps } from "../data";
 import bgDesk from "../assets/images/bg-sidebar-desktop.svg";
 import bgMob from "../assets/images/bg-sidebar-mobile.svg";
-const Steps = () => {
-  const [cuurentStep, setCurrentStep] = useState(1);
+const Steps = ({ step: currentStep }) => {
   return (
     <section className="stack">
       <picture>
@@ -21,7 +20,7 @@ const Steps = () => {
           >
             <span
               className={`${
-                i === cuurentStep
+                i === currentStep
                   ? "bg-ligthBlue"
                   : "border-white border text-white"
               } md:text-2xl p-6 w-8 h-8 rounded-full  flex items-center justify-center transition`}

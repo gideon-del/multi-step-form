@@ -4,7 +4,7 @@ const Footer = ({ onClick }) => {
       <button className="text-coolGray hover:text-marineBlue transition">
         Go Back
       </button>
-      <button className=" next-btn" type="submit" onClick={onClick}>
+      <button className=" next-btn" onClick={onClick}>
         Next Step
       </button>
     </div>
