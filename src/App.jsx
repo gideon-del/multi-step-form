@@ -13,7 +13,6 @@ function App() {
   };
   const changeStep = () => {
     setStep((prev) => (prev >= 3 ? 0 : prev + 1));
-    console.log("Clicked", steps);
   };
   return (
     <>
