@@ -7,7 +7,7 @@ import useSteps from "./hooks/useSteps";
 
 function App() {
   const currentRef = useRef(null);
-  const { changeStep, currentStep: steps, CurForm } = useSteps();
+  const { currentStep: steps, CurForm } = useSteps();
   const submit = () => {
     const data = new FormData(currentRef.current);
     const val = Object.fromEntries(data.entries());
@@ -20,7 +20,7 @@ function App() {
         <section className=" flex-1 px-3 md:px-14 lg:px-18 md:pt-10 bg-ligthBlue md:bg-white w-fit">
           <div className="flex lg:max-w-3xl flex-col justify-between h-full">
             <CurForm />
-            <Footer onClick={changeStep} />
+            <Footer />
           </div>
         </section>
       </main>
