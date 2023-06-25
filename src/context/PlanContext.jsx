@@ -1,11 +1,37 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
+import FirstStep from "../components/FirstStep";
+import SecondStep from "../components/SecondStep";
+import ThirdStep from "../components/ThirdStep";
+import FourthStep from "../components/FourthStep";
 
 const PlansContext = createContext({
   steps: 0,
   changeStep: () => {},
+  currentStep: {},
 });
 
 const PlanProvider = ({ children }) => {
+  const Forms = useMemo(
+    () => [
+      {
+        component: FirstStep,
+        ref: true,
+      },
+      {
+        component: SecondStep,
+        ref: false,
+      },
+      {
+        component: ThirdStep,
+        ref: false,
+      },
+      {
+        component: FourthStep,
+        ref: false,
+      },
+    ],
+    []
+  );
   const [step, setStep] = useState(0);
   const changeStep = (pos) => {
     if (typeof pos === "number" && pos >= 0 && pos <= 3) {
@@ -23,6 +49,7 @@ const PlanProvider = ({ children }) => {
       value={{
         steps: step,
         changeStep,
+        currentStep: Forms[step],
       }}
     >
       {children}
