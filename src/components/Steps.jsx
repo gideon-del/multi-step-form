@@ -1,8 +1,6 @@
-import { useState } from "react";
 import { steps } from "../data";
 import bgDesk from "../assets/images/bg-sidebar-desktop.svg";
 import bgMob from "../assets/images/bg-sidebar-mobile.svg";
-import useSteps from "../hooks/useSteps";
 import { usePlan } from "../context/PlanContext";
 const Steps = () => {
   const { steps: currentStep } = usePlan();
