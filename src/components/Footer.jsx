@@ -1,7 +1,8 @@
+import { usePlan } from "../context/PlanContext";
 import useSteps from "../hooks/useSteps";
 
 const Footer = ({ onClick }) => {
-  const { changeStep } = useSteps();
+  const { changeStep } = usePlan();
   // const next = () => {
   //   if (currentStep < 3 && fieldInPlan.includes(fields[currentStep])) {
   //     changeStep("next");
@@ -15,15 +16,7 @@ const Footer = ({ onClick }) => {
       >
         Go Back
       </button>
-      <button
-        className=" next-btn"
-        onClick={() =>
-          onClick((prev) => {
-            if (prev >= 3) return 0;
-            return prev + 1;
-          })
-        }
-      >
+      <button className=" next-btn" onClick={() => changeStep("next")}>
         Next Step
       </button>
     </div>
