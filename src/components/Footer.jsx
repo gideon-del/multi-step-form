@@ -1,21 +1,29 @@
 import useSteps from "../hooks/useSteps";
 
-const Footer = () => {
-  const { nextStep, prevStep, fieldInPlan, fields, currentStep } = useSteps();
-  const next = () => {
-    if (currentStep < 3 && fieldInPlan.includes(fields[currentStep])) {
-      nextStep();
-    }
-  };
+const Footer = ({ onClick }) => {
+  const { changeStep } = useSteps();
+  // const next = () => {
+  //   if (currentStep < 3 && fieldInPlan.includes(fields[currentStep])) {
+  //     changeStep("next");
+  //   }
+  // };
   return (
     <div className=" flex justify-between  items-center">
       <button
         className="text-coolGray hover:text-marineBlue transition"
-        onClick={prevStep}
+        onClick={() => changeStep("prev")}
       >
         Go Back
       </button>
-      <button className=" next-btn" onClick={nextStep}>
+      <button
+        className=" next-btn"
+        onClick={() =>
+          onClick((prev) => {
+            if (prev >= 3) return 0;
+            return prev + 1;
+          })
+        }
+      >
         Next Step
       </button>
     </div>

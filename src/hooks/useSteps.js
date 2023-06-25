@@ -6,45 +6,45 @@ import ThirdStep from "../components/ThirdStep";
 import FourthStep from "../components/FourthStep";
 
 const useSteps = () => {
-  const fields = useMemo(() => ["info", "plan", "addOns"], []);
+  // const fields = useMemo(() => ["info", "plan", "addOns"], []);
   const [currentStep, setCurrentStep] = useState(0);
-  const [plans, setPlans] = useState({});
-  const fieldInPlan = Object.keys(plans);
-  const Forms = useMemo(
-    () => [
-      {
-        component: FirstStep,
-      },
-      {
-        component: SecondStep,
-      },
-      {
-        component: ThirdStep,
-      },
-      {
-        component: FourthStep,
-      },
-    ],
-    []
-  );
-  const CurForm = Forms[currentStep].component;
+  const [plans, setPlans] = useState(null);
+  // const fieldInPlan = Object.keys(plans) ?? [];
+  // const Forms = useMemo(
+  //   () => [
+  //     {
+  //       component: FirstStep,
+  //     },
+  //     {
+  //       component: SecondStep,
+  //     },
+  //     {
+  //       component: ThirdStep,
+  //     },
+  //     {
+  //       component: FourthStep,
+  //     },
+  //   ],
+  //   []
+  // );
+  // const CurForm = Forms[currentStep].component;
+  // console.log(Forms[currentStep]);
   const firstStep = (vals) => {
     setPlans((plans) => ({ ...plans, personalInfo: vals }));
   };
-  const nextStep = () => {
-    setCurrentStep((prev) => (prev >= 3 ? 0 : prev + 1));
+  const changeStep = (pos) => {
+    setCurrentStep((prev) => {
+      console.log(currentStep);
+      if (prev >= 3) return 0;
+      return prev + 1;
+    });
   };
-  const prevStep = () => {
-    setCurrentStep((prev) => (prev <= 0 ? 3 : prev - 1));
-  };
+
   return {
-    nextStep,
+    changeStep,
     currentStep,
-    CurForm,
+    // CurForm,
     plans,
-    prevStep,
-    fields,
-    fieldInPlan,
   };
 };
 
