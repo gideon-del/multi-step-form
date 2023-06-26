@@ -32,6 +32,12 @@ const PlanProvider = ({ children }) => {
     ],
     []
   );
+  const mainPlan = useMemo(() => ["info", "plan", "addOn"], []);
+  const [selection, setSelection] = useState({
+    info: null,
+    plan: null,
+    addOn: null,
+  });
   const [step, setStep] = useState(0);
   const changeStep = (pos) => {
     if (typeof pos === "number" && pos >= 0 && pos <= 3) {
@@ -50,6 +56,7 @@ const PlanProvider = ({ children }) => {
         steps: step,
         changeStep,
         currentStep: Forms[step],
+        currentSelection: selection[mainPlan[step]],
       }}
     >
       {children}
