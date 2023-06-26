@@ -8,6 +8,7 @@ const PlansContext = createContext({
   steps: 0,
   changeStep: () => {},
   currentStep: {},
+  currentSelection: {},
 });
 
 const PlanProvider = ({ children }) => {
