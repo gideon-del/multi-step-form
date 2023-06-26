@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { createContext, useContext, useMemo, useState } from "react";
 import FirstStep from "../components/FirstStep";
 import SecondStep from "../components/SecondStep";
@@ -17,6 +19,9 @@ const PlanProvider = ({ children }) => {
       {
         component: FirstStep,
         ref: true,
+        validate(ref) {
+          const data = new FormData(ref);
+        },
       },
       {
         component: SecondStep,
@@ -65,6 +70,7 @@ const PlanProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const usePlan = () => useContext(PlansContext);
 
 export default PlanProvider;
