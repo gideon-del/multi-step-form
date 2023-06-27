@@ -3,7 +3,7 @@ export const validate = (valid) => {
     if (!val.value) {
       return false;
     }
-    if (val.minLength && val.value < val.minLength) {
+    if (val.minLength && val.value.length < val.minLength) {
       return false;
     }
     if (val.pattern && !val.pattern.test(val.value)) {

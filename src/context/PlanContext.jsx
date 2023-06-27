@@ -5,6 +5,7 @@ import FirstStep from "../components/FirstStep";
 import SecondStep from "../components/SecondStep";
 import ThirdStep from "../components/ThirdStep";
 import FourthStep from "../components/FourthStep";
+import { firstInputs } from "../data";
 
 const PlansContext = createContext({
   steps: 0,
@@ -21,6 +22,14 @@ const PlanProvider = ({ children }) => {
         ref: true,
         validate(ref) {
           const data = new FormData(ref);
+          const val = Object.fromEntries(data.entries());
+          const transfromedVal = Object.entries(val).map((val, i) => {
+            const obj = firstInputs[i];
+            return {
+              ...obj,
+              value: val[1],
+            };
+          });
         },
       },
       {

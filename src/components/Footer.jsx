@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { usePlan } from "../context/PlanContext";
 
-const Footer = () => {
+const Footer = ({ OnClick }) => {
   const { changeStep, currentSelection, steps } = usePlan();
   const next = () => {
     if (!currentSelection) return;
@@ -16,7 +17,7 @@ const Footer = () => {
           Go Back
         </button>
       )}
-      <button className=" next-btn" onClick={next}>
+      <button className=" next-btn" onClick={OnClick}>
         Next Step
       </button>
     </div>

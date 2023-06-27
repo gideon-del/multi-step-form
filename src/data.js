@@ -7,6 +7,7 @@ export const firstInputs = [
     title: "Name",
     placeholder: "e.g Stephen King",
     type: "text",
+    minLength: 5,
   },
   {
     name: "email",
@@ -19,6 +20,7 @@ export const firstInputs = [
     title: "Phone Number",
     placeholder: "e.g +1 234 567 890",
     type: "text",
+    minLength: 9,
   },
 ];
 export const steps = [

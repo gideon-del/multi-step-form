@@ -8,8 +8,8 @@ function App() {
   const currentRef = useRef(null);
   const { currentStep } = usePlan();
   const submit = () => {
-    const data = new FormData(currentRef.current);
-    const val = Object.fromEntries(data.entries());
+    if (!currentStep.validate) return;
+    currentStep.validate(currentRef.current);
   };
   const CurForm = currentStep.component;
   return (
@@ -19,7 +19,7 @@ function App() {
         <section className=" flex-1 px-3 md:px-14 lg:px-18 md:pt-10 bg-ligthBlue md:bg-white w-fit">
           <div className="flex lg:max-w-3xl flex-col justify-between h-full">
             {currentStep.ref ? <CurForm ref={currentRef} /> : <CurForm />}
-            <Footer />
+            <Footer OnClick={submit} />
           </div>
         </section>
       </main>
