@@ -1,7 +1,14 @@
 export const validate = (valid) => {
-  for (val of valid) {
+  for (let val of valid) {
+    if (!val.value) {
+      return false;
+    }
     if (val.minLength && val.value < val.minLength) {
       return false;
     }
+    if (val.pattern && !val.pattern.test(val.value)) {
+      return false;
+    }
   }
+  return true;
 };
