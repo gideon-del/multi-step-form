@@ -3,9 +3,10 @@ import bgDesk from "../assets/images/bg-sidebar-desktop.svg";
 import bgMob from "../assets/images/bg-sidebar-mobile.svg";
 import { usePlan } from "../context/PlanContext";
 const Steps = () => {
-  const { steps: currentStep, changeStep, currentSelection } = usePlan();
+  const { steps: currentStep, changeStep, getSlection } = usePlan();
   const canMoveTonextStep = (i) => {
-    if (!(i < currentStep)) return;
+    const stepIsCompleted = getSlection(i);
+    if (!(i < currentStep) || !stepIsCompleted) return;
     changeStep(i);
   };
   return (

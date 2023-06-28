@@ -15,10 +15,12 @@ const PlansContext = createContext({
   currentSelection: {},
   error: "",
   setError: () => {},
+  getSlection: () => {},
 });
 
 const PlanProvider = ({ children }) => {
   const [error, setError] = useState("");
+
   const Forms = useMemo(
     () => [
       {
@@ -65,6 +67,9 @@ const PlanProvider = ({ children }) => {
     addOn: null,
   });
   const [step, setStep] = useState(0);
+  const getSlection = (i) => {
+    return selection[mainPlan[i]];
+  };
   const changeStep = (pos) => {
     if (typeof pos === "number" && pos >= 0 && pos <= 3) {
       setStep(pos);
@@ -84,6 +89,7 @@ const PlanProvider = ({ children }) => {
         currentStep: Forms[step],
         currentSelection: selection[mainPlan[step]],
         error,
+        getSlection,
       }}
     >
       {children}
