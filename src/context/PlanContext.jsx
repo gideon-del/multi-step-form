@@ -6,7 +6,7 @@ import SecondStep from "../components/SecondStep";
 import ThirdStep from "../components/ThirdStep";
 import FourthStep from "../components/FourthStep";
 import { firstInputs } from "../data";
-import { validate as valid } from "../lib/validate";
+import { validate as valid } from "../lib/helpers";
 
 const PlansContext = createContext({
   steps: 0,

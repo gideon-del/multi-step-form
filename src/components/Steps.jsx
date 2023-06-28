@@ -3,7 +3,11 @@ import bgDesk from "../assets/images/bg-sidebar-desktop.svg";
 import bgMob from "../assets/images/bg-sidebar-mobile.svg";
 import { usePlan } from "../context/PlanContext";
 const Steps = () => {
-  const { steps: currentStep, changeStep } = usePlan();
+  const { steps: currentStep, changeStep, currentSelection } = usePlan();
+  const canMoveTonextStep = (i) => {
+    if (!(i < currentStep)) return;
+    changeStep(i);
+  };
   return (
     <section className="stack">
       <picture>
@@ -18,7 +22,7 @@ const Steps = () => {
           <div
             className="flex gap-4  items-center justify-start cursor-pointer"
             key={step.title}
-            onClick={() => changeStep(i)}
+            onClick={() => canMoveTonextStep(i)}
           >
             <span
               className={`${
