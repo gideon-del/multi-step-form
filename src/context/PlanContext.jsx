@@ -6,6 +6,7 @@ import SecondStep from "../components/SecondStep";
 import ThirdStep from "../components/ThirdStep";
 import FourthStep from "../components/FourthStep";
 import { firstInputs } from "../data";
+import { validate as valid } from "../lib/validate";
 
 const PlansContext = createContext({
   steps: 0,
@@ -17,6 +18,7 @@ const PlansContext = createContext({
 });
 
 const PlanProvider = ({ children }) => {
+  const [error, setError] = useState("");
   const Forms = useMemo(
     () => [
       {
@@ -32,6 +34,13 @@ const PlanProvider = ({ children }) => {
               value: val[1],
             };
           });
+          const isValid = valid(transfromedVal);
+
+          if (isValid !== "OK") {
+            setError(isValid);
+            return;
+          }
+          setError("");
         },
       },
       {
@@ -74,6 +83,7 @@ const PlanProvider = ({ children }) => {
         changeStep,
         currentStep: Forms[step],
         currentSelection: selection[mainPlan[step]],
+        error,
       }}
     >
       {children}

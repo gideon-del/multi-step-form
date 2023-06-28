@@ -6,7 +6,7 @@ import { usePlan } from "./context/PlanContext";
 
 function App() {
   const currentRef = useRef(null);
-  const { currentStep } = usePlan();
+  const { currentStep, error } = usePlan();
   const submit = () => {
     if (!currentStep.validate) return;
     currentStep.validate(currentRef.current);
@@ -19,6 +19,9 @@ function App() {
         <section className=" flex-1 px-3 md:px-14 lg:px-18 md:pt-10 bg-ligthBlue md:bg-white w-fit">
           <div className="flex lg:max-w-3xl flex-col justify-between h-full">
             {currentStep.ref ? <CurForm ref={currentRef} /> : <CurForm />}
+            {error && (
+              <p className="text-center text-red-500 fotn-Bold">{error}</p>
+            )}
             <Footer OnClick={submit} />
           </div>
         </section>
