@@ -14,6 +14,8 @@ export const firstInputs = [
     title: "Email Address",
     placeholder: "e.g stephenking@lorem.com",
     type: "email",
+    pattern:
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
   },
   {
     name: "phoneNum",

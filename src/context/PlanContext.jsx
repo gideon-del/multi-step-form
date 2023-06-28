@@ -12,6 +12,8 @@ const PlansContext = createContext({
   changeStep: () => {},
   currentStep: {},
   currentSelection: {},
+  error: "",
+  setError: () => {},
 });
 
 const PlanProvider = ({ children }) => {
