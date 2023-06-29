@@ -12,7 +12,6 @@ const Inputs = ({ type, name, placeholder, title }) => {
   };
   const firstSelection = getSlection(0);
   const defaultVal = firstSelection ? firstSelection[name] : "";
-  console.log(defaultVal);
   return (
     <>
       <fieldset className="flex flex-col gap-1 md:gap-3 ">
