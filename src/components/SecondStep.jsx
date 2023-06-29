@@ -1,7 +1,9 @@
-import { useState } from "react";
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-refresh/only-export-components */
+import { forwardRef, useState } from "react";
 import { plans } from "../data";
 
-const SecondStep = () => {
+const SecondStep = (prop, ref) => {
   const [checked, setChecked] = useState(false);
   const time = checked ? "yearly" : "monthly";
   const [currentPlan, setCurrentPlan] = useState(0);
@@ -16,8 +18,8 @@ const SecondStep = () => {
       <p className="text-coolGray font-Regular md:mt-3 mt-1">
         You have the option of monthly or yearly billing
       </p>
-      <div className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 ">
-        <form className="flex  gap-5 md:gap-7 lg:gap-10 flex-col md:flex-row">
+      <form ref={ref} className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 ">
+        <div className="flex  gap-5 md:gap-7 lg:gap-10 flex-col md:flex-row">
           {plans.map((plan, i) => (
             <div key={plan.title}>
               <input
@@ -26,6 +28,7 @@ const SecondStep = () => {
                 id={plan.title}
                 name="plan"
                 defaultValue={plan.title}
+                defaultChecked={i === 0 && true}
               />
               <label
                 className={`md:pr-10 md:pl-5 px-4 md:aspect-square ${
@@ -55,16 +58,18 @@ const SecondStep = () => {
               </label>
             </div>
           ))}
-        </form>
+        </div>
         <div className="bg-ligthBlue py-3 px-3 flex flex-row justify-center items-center gap-5 md:gap-7 lg:gap-10">
-          <p>Monthly</p>
+          <p className={`${!checked ? "text-marineBlue" : "text-coolGray"}`}>
+            Monthly
+          </p>
           <div>
             <input
-              type="checkbox"
+              type="chekbox"
               id="time"
               name="time"
               className="hidden"
-              defaultValue={checked ? "monthly" : "yearly"}
+              defaultValue={checked ? "yearly" : "monthly"}
             />
             <label
               className={`w-16 flex items-center ${
@@ -74,11 +79,13 @@ const SecondStep = () => {
               htmlFor="time"
             ></label>
           </div>
-          <p className="text-coolGray">Yearly</p>
+          <p className={`${checked ? "text-marineBlue" : "text-coolGray"}`}>
+            Yearly
+          </p>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
 
-export default SecondStep;
+export default forwardRef(SecondStep);

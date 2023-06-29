@@ -54,7 +54,10 @@ const PlanProvider = ({ children }) => {
       },
       {
         component: SecondStep,
-        ref: false,
+        ref: true,
+        validate: (ref) => {
+          const data = new FormData(ref);
+        },
       },
       {
         component: ThirdStep,
