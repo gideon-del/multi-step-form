@@ -73,7 +73,7 @@ const PlanProvider = ({ children }) => {
       },
       {
         component: ThirdStep,
-        ref: false,
+        ref: true,
       },
       {
         component: FourthStep,

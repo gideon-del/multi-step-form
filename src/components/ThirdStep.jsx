@@ -1,7 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
+/* eslint-disable no-unused-vars */
+import { forwardRef } from "react";
 import { addons } from "../data";
 import AddOns from "./AddOns";
 
-const ThirdStep = () => {
+const ThirdStep = (prop, ref) => {
   return (
     <div className=" md:h-full flex flex-col bg-white px-4 py-3 w-full rounded-lg relative -top-10">
       <h1 className="font-Bold text-marineBlue text-xl md:text-4xl">
@@ -10,13 +13,13 @@ const ThirdStep = () => {
       <p className="text-coolGray font-Regular md:mt-3 mt-1">
         Add-ons help enhance your gaming experience.
       </p>
-      <div className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 ">
+      <form className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 " ref={ref}>
         {addons.map((add) => (
           <AddOns key={add.id} {...add} />
         ))}
-      </div>
+      </form>
     </div>
   );
 };
 
-export default ThirdStep;
+export default forwardRef(ThirdStep);
