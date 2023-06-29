@@ -5,8 +5,9 @@ import FirstStep from "../components/FirstStep";
 import SecondStep from "../components/SecondStep";
 import ThirdStep from "../components/ThirdStep";
 import FourthStep from "../components/FourthStep";
-import { firstInputs } from "../data";
+import { firstInputs, plans } from "../data";
 import { validate as valid } from "../lib/helpers";
+import { data } from "autoprefixer";
 
 const PlansContext = createContext({
   steps: 0,
@@ -56,7 +57,18 @@ const PlanProvider = ({ children }) => {
         component: SecondStep,
         ref: true,
         validate: (ref) => {
-          const data = new FormData(ref);
+          const val = new FormData(ref);
+          const plan = Object.fromEntries(val.entries());
+          const transformedPlan = plans.find((pl) => pl.title === plan.plan);
+          setSelection((prev) => ({
+            ...prev,
+            plan: {
+              title: plan.plan,
+              billing: transformedPlan[plan.time],
+              duration: plan.time,
+            },
+          }));
+          setStep(2);
         },
       },
       {

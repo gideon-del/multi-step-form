@@ -48,20 +48,38 @@ export const plans = [
   {
     img: acrade,
     title: "Acrade",
-    monthly: "$9/mo",
-    yearly: "$90/yr",
+    monthly: {
+      price: 9,
+      suffix: "mo",
+    },
+    yearly: {
+      price: 90,
+      suffix: "yr",
+    },
   },
   {
     img: advanced,
     title: "Advanced",
-    monthly: "$12/mo",
-    yearly: "$120/yr",
+    monthly: {
+      price: 12,
+      suffix: "mo",
+    },
+    yearly: {
+      price: 120,
+      suffix: "yr",
+    },
   },
   {
     img: pro,
     title: "Pro",
-    monthly: "$15/mo",
-    yearly: "$150/yr",
+    monthly: {
+      price: 15,
+      suffix: "mo",
+    },
+    yearly: {
+      price: 150,
+      suffix: "yr",
+    },
   },
 ];
 export const addons = [

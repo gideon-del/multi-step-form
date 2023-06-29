@@ -42,7 +42,7 @@ const SecondStep = (prop, ref) => {
                   <h1 className="flex flex-col md:gap-3 gap-1 md:mt-9 font-Bold text-marineBlue md:mb-1">
                     {plan.title}
                     <span className="text-coolGray font-Regular">
-                      {plan[time]}
+                      ${plan[time].price}/${plan[time].suffix}
                     </span>
                   </h1>
 
@@ -69,7 +69,7 @@ const SecondStep = (prop, ref) => {
               id="time"
               name="time"
               className="hidden"
-              defaultValue={checked ? "yearly" : "monthly"}
+              defaultValue={time}
             />
             <label
               className={`w-16 flex items-center ${
