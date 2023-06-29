@@ -42,7 +42,14 @@ const PlanProvider = ({ children }) => {
             setError(isValid);
             return;
           }
-          setError("");
+          setSelection((prev) => ({
+            ...prev,
+            info: val,
+          }));
+          if (error) {
+            setError("");
+          }
+          setStep(1);
         },
       },
       {
