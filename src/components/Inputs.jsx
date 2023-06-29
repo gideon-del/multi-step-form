@@ -1,12 +1,18 @@
+/* eslint-disable react/prop-types */
 import { memo, useRef, useState } from "react";
+import { usePlan } from "../context/PlanContext";
 
 const Inputs = ({ type, name, placeholder, title }) => {
   const [error, setError] = useState("");
   const inputRef = useRef(null);
+  const { getSlection } = usePlan();
   const validation = () => {
     const val = inputRef.current.value.trim();
     if (val === "") setError("This field is required");
   };
+  const firstSelection = getSlection(0);
+  const defaultVal = firstSelection ? firstSelection[name] : "";
+  console.log(defaultVal);
   return (
     <>
       <fieldset className="flex flex-col gap-1 md:gap-3 ">
@@ -34,6 +40,7 @@ const Inputs = ({ type, name, placeholder, title }) => {
             error && setError("");
           }}
           onBlur={validation}
+          defaultValue={defaultVal}
         />
       </fieldset>
     </>
