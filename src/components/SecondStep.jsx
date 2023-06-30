@@ -69,7 +69,7 @@ const SecondStep = (prop, ref) => {
               id="time"
               name="time"
               className="hidden"
-              defaultValue={time}
+              value={time}
             />
             <label
               className={`w-16 flex items-center ${

@@ -5,7 +5,7 @@ import FirstStep from "../components/FirstStep";
 import SecondStep from "../components/SecondStep";
 import ThirdStep from "../components/ThirdStep";
 import FourthStep from "../components/FourthStep";
-import { firstInputs, plans } from "../data";
+import { addons, firstInputs, plans } from "../data";
 import { validate as valid } from "../lib/helpers";
 import { data } from "autoprefixer";
 
@@ -76,7 +76,16 @@ const PlanProvider = ({ children }) => {
         ref: true,
         validate(ref) {
           const val = new FormData(ref);
-          console.log(Object.fromEntries(val));
+          const transformedVl = Object.fromEntries(val.entries());
+          const addon = [];
+          for (let add of val.keys()) {
+            const findaddon = addons.find((adds) => adds.id === add);
+            addon.push(findaddon);
+          }
+          setSelection((prev) => ({
+            ...prev,
+            addOn: addon,
+          }));
         },
       },
       {

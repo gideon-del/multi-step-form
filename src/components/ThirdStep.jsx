@@ -17,7 +17,7 @@ const ThirdStep = (prop, ref) => {
       </p>
       <form className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 " ref={ref}>
         {addons.map((add) => (
-          <AddOns key={add.id} {...add} billing={addons[selectedDuration]} />
+          <AddOns key={add.id} {...add} billing={add[selectedDuration]} />
         ))}
       </form>
     </div>
