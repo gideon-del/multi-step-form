@@ -6,6 +6,10 @@ const Steps = () => {
   const { steps: currentStep, changeStep, getSlection } = usePlan();
   const canMoveTonextStep = (i) => {
     const stepIsCompleted = getSlection(i);
+    if (stepIsCompleted) {
+      changeStep(i);
+      return;
+    }
     if (!(i < currentStep) || !stepIsCompleted) return;
     changeStep(i);
   };
