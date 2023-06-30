@@ -1,12 +1,30 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-refresh/only-export-components */
-import { forwardRef, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import { plans } from "../data";
+import { usePlan } from "../context/PlanContext";
 
 const SecondStep = (prop, ref) => {
   const [checked, setChecked] = useState(false);
   const time = checked ? "yearly" : "monthly";
   const [currentPlan, setCurrentPlan] = useState(0);
+  const { getSlection } = usePlan();
+  const secondSelection = getSlection(1);
+
+  useEffect(() => {
+    if (secondSelection) {
+      if (secondSelection.duration === "yearly" && !checked) {
+        setChecked(true);
+      }
+    }
+  }, []);
+  const isCheked = (plan, i) => {
+    return secondSelection && secondSelection.title === plan.title
+      ? true
+      : i === 0
+      ? true
+      : false;
+  };
   const togglePlan = (plan) => {
     setCurrentPlan(plan);
   };
@@ -28,7 +46,7 @@ const SecondStep = (prop, ref) => {
                 id={plan.title}
                 name="plan"
                 defaultValue={plan.title}
-                defaultChecked={i === 0 && true}
+                defaultChecked={isCheked(plan, i)}
               />
               <label
                 className={`md:pr-10 md:pl-5 px-4 md:aspect-square ${

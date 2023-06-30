@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { steps } from "../data";
 import bgDesk from "../assets/images/bg-sidebar-desktop.svg";
 import bgMob from "../assets/images/bg-sidebar-mobile.svg";
@@ -6,7 +7,8 @@ const Steps = () => {
   const { steps: currentStep, changeStep, getSlection } = usePlan();
   const canMoveTonextStep = (i) => {
     const stepIsCompleted = getSlection(i);
-    if (stepIsCompleted) {
+    const previousStepIsCompleted = getSelection(i - 1);
+    if (stepIsCompleted || previousStepIsCompleted) {
       changeStep(i);
       return;
     }
