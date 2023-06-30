@@ -3,8 +3,10 @@
 import { forwardRef } from "react";
 import { addons } from "../data";
 import AddOns from "./AddOns";
-
+import { usePlan } from "../context/PlanContext";
 const ThirdStep = (prop, ref) => {
+  const { getSlection } = usePlan();
+  const selectedDuration = getSlection(1)?.duration;
   return (
     <div className=" md:h-full flex flex-col bg-white px-4 py-3 w-full rounded-lg relative -top-10">
       <h1 className="font-Bold text-marineBlue text-xl md:text-4xl">
@@ -15,7 +17,7 @@ const ThirdStep = (prop, ref) => {
       </p>
       <form className="flex flex-col md:gap-5 gap-3 md:mt-10 mt-3 " ref={ref}>
         {addons.map((add) => (
-          <AddOns key={add.id} {...add} />
+          <AddOns key={add.id} {...add} billing={addons[selectedDuration]} />
         ))}
       </form>
     </div>

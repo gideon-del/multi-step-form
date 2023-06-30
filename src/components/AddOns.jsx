@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { memo, useState } from "react";
 
-const AddOns = ({ title, desc, price, id }) => {
+const AddOns = ({ title, desc, billing, id }) => {
   const [checked, setChecked] = useState(false);
   const toggle = () => {
     setChecked((prev) => !prev);
@@ -30,7 +30,9 @@ const AddOns = ({ title, desc, price, id }) => {
           <span className="text-coolGray font-Regular capitalize">{desc}</span>
         </label>
       </div>
-      <p className="text-base text-purplishBlue">{price}</p>
+      <p className="text-base text-purplishBlue">
+        +${billing?.price}/{billing?.suffix}
+      </p>
     </div>
   );
 };
