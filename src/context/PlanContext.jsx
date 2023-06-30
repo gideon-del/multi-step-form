@@ -75,10 +75,9 @@ const PlanProvider = ({ children }) => {
         component: ThirdStep,
         ref: true,
         validate(ref) {
-          const val = new FormData(ref);
-          const transformedVl = Object.fromEntries(val.entries());
+          const selectedAddOns = new FormData(ref);
           const addon = [];
-          for (let add of val.keys()) {
+          for (let add of selectedAddOns.keys()) {
             const findaddon = addons.find((adds) => adds.id === add);
             addon.push(findaddon);
           }
