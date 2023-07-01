@@ -51,9 +51,7 @@ const PlanProvider = ({ children }) => {
             ...prev,
             info: val,
           }));
-          if (error) {
-            setError("");
-          }
+          clearError();
           setStep(1);
         },
       },
@@ -89,10 +87,12 @@ const PlanProvider = ({ children }) => {
             setError("Please Slect at leaset 1 add-on");
             return;
           }
+          clearError();
           setSelection((prev) => ({
             ...prev,
             addOn: addon,
           }));
+          setStep(4);
         },
       },
       {

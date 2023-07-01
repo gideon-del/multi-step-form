@@ -1,4 +1,9 @@
+import { usePlan } from "../context/PlanContext";
+
 const FourthStep = () => {
+  const { getSlection } = usePlan();
+  const billingPlan = getSlection(1);
+  const addOns = getSlection(2);
   return (
     <div className=" md:h-full flex flex-col bg-white px-4 py-3 w-full rounded-lg relative -top-10 gap-3 shadow-xl md:shadow-none">
       <h1 className="font-Bold text-marineBlue text-xl md:text-4xl">
@@ -9,13 +14,15 @@ const FourthStep = () => {
       </p>
       <div className="bg-alabaster md:bg-transparent flex flex-col gap-2 p-3">
         <div className=" font-Bold text-marineBlue flex justify-between items-center border-b border-b-coolGray pb-4 ">
-          <p className="flex flex-col text-base md:text-lg">
-            Arcade(Monthly){" "}
+          <p className="flex flex-col text-base md:text-lg capitalize">
+            {billingPlan?.title}({billingPlan?.duration}){" "}
             <span className="underline text-purplishBlue font-Regular">
               Change
             </span>
           </p>
-          <p className="">$9/mo</p>
+          <p className="">
+            ${billingPlan?.billing.price}/{billingPlan?.billing.suffix}
+          </p>
         </div>
         <div className="flex flex-col gap-2 mb-4">
           <p className="text-coolGray flex justify-between items-center font-Regular">
