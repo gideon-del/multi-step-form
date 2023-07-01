@@ -38,7 +38,7 @@ const FourthStep = () => {
             const { price, suffix } = extractPrice(add);
             return (
               <p
-                className="text-coolGray flex justify-between items-center font-Regular"
+                className="text-coolGray flex justify-between items-center font-Regular capitalize"
                 key={add.id}
               >
                 {add.title}{" "}

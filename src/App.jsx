@@ -11,7 +11,6 @@ function App() {
     if (!currentStep.validate) return;
     currentStep.validate(currentRef.current);
   };
-  console.log(currentStep, steps);
   const CurForm = currentStep.component;
   return (
     <>

@@ -98,7 +98,7 @@ export const addons = [
   },
   {
     id: "add2",
-    title: "larger storage",
+    title: "Larger Storage",
     desc: "extra 1TB of cloud save",
     monthly: {
       price: 2,
@@ -111,7 +111,7 @@ export const addons = [
   },
   {
     id: "add3",
-    title: "customizable profile",
+    title: "Customizable Profile",
     desc: "custom theme on your profile",
     monthly: {
       price: 2,

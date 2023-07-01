@@ -2,11 +2,8 @@
 import { usePlan } from "../context/PlanContext";
 
 const Footer = ({ OnClick }) => {
-  const { changeStep, currentSelection, steps } = usePlan();
-  const next = () => {
-    if (!currentSelection) return;
-    changeStep("next");
-  };
+  const { changeStep, steps } = usePlan();
+
   return (
     <div className=" flex justify-between  items-center">
       {steps > 0 && (
@@ -17,9 +14,13 @@ const Footer = ({ OnClick }) => {
           Go Back
         </button>
       )}
-      <button className=" next-btn" onClick={OnClick}>
-        Next Step
-      </button>
+      {steps !== 3 ? (
+        <button className=" next-btn" onClick={OnClick}>
+          Next Step
+        </button>
+      ) : (
+        <button className=" next-btn">Confirm</button>
+      )}
     </div>
   );
 };
