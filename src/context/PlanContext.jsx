@@ -22,9 +22,7 @@ const PlansContext = createContext({
 const PlanProvider = ({ children }) => {
   const [error, setError] = useState("");
   const clearError = () => {
-    if (error) {
-      setError("");
-    }
+    setError("");
   };
   const Forms = useMemo(
     () => [
