@@ -21,7 +21,11 @@ const PlansContext = createContext({
 
 const PlanProvider = ({ children }) => {
   const [error, setError] = useState("");
-
+  const clearError = () => {
+    if (error) {
+      setError("");
+    }
+  };
   const Forms = useMemo(
     () => [
       {
@@ -80,6 +84,10 @@ const PlanProvider = ({ children }) => {
           for (let add of selectedAddOns.keys()) {
             const findaddon = addons.find((adds) => adds.id === add);
             addon.push(findaddon);
+          }
+          if (addon.length === 0) {
+            setError("Please Slect at leaset 1 add-on");
+            return;
           }
           setSelection((prev) => ({
             ...prev,
