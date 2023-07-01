@@ -6,11 +6,12 @@ import { usePlan } from "./context/PlanContext";
 
 function App() {
   const currentRef = useRef(null);
-  const { currentStep, error } = usePlan();
+  const { currentStep, error, steps } = usePlan();
   const submit = () => {
     if (!currentStep.validate) return;
     currentStep.validate(currentRef.current);
   };
+  console.log(currentStep, steps);
   const CurForm = currentStep.component;
   return (
     <>

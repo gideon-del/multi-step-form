@@ -92,7 +92,7 @@ const PlanProvider = ({ children }) => {
             ...prev,
             addOn: addon,
           }));
-          setStep(4);
+          setStep(3);
         },
       },
       {
@@ -129,7 +129,7 @@ const PlanProvider = ({ children }) => {
         steps: step,
         changeStep,
         currentStep: Forms[step],
-        currentSelection: selection[mainPlan[step]],
+        currentSelection: selection[mainPlan[step]] || {},
         error,
         getSlection,
       }}

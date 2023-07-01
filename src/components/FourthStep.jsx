@@ -1,9 +1,15 @@
+/* eslint-disable no-unused-vars */
 import { usePlan } from "../context/PlanContext";
 
 const FourthStep = () => {
-  const { getSlection } = usePlan();
+  const { getSlection, changeStep } = usePlan();
   const billingPlan = getSlection(1);
   const addOns = getSlection(2);
+  const extractPrice = (add) => {
+    const { price, suffix } = add[billingPlan.duration];
+    return { price, suffix };
+  };
+
   return (
     <div className=" md:h-full flex flex-col bg-white px-4 py-3 w-full rounded-lg relative -top-10 gap-3 shadow-xl md:shadow-none">
       <h1 className="font-Bold text-marineBlue text-xl md:text-4xl">
@@ -16,7 +22,10 @@ const FourthStep = () => {
         <div className=" font-Bold text-marineBlue flex justify-between items-center border-b border-b-coolGray pb-4 ">
           <p className="flex flex-col text-base md:text-lg capitalize">
             {billingPlan?.title}({billingPlan?.duration}){" "}
-            <span className="underline text-purplishBlue font-Regular">
+            <span
+              className="underline text-purplishBlue font-Regular"
+              onClick={() => changeStep(1)}
+            >
               Change
             </span>
           </p>
@@ -25,13 +34,20 @@ const FourthStep = () => {
           </p>
         </div>
         <div className="flex flex-col gap-2 mb-4">
-          <p className="text-coolGray flex justify-between items-center font-Regular">
-            Online service <span className="text-purplishBlue">+$1/mo</span>{" "}
-          </p>
-          <p className="text-coolGray flex justify-between items-center font-Regular">
-            Larger service
-            <span className="text-purplishBlue">+$2/mo</span>{" "}
-          </p>
+          {addOns.map((add) => {
+            const { price, suffix } = extractPrice(add);
+            return (
+              <p
+                className="text-coolGray flex justify-between items-center font-Regular"
+                key={add.id}
+              >
+                {add.title}{" "}
+                <span className="text-purplishBlue">
+                  +${price}/{suffix}
+                </span>{" "}
+              </p>
+            );
+          })}
         </div>
       </div>
       <p className="font-Regular text-coolGray text-base flex justify-between items-center p-3 ">
