@@ -5,6 +5,7 @@ const FourthStep = () => {
   const { getSlection, changeStep } = usePlan();
   const billingPlan = getSlection(1);
   const addOns = getSlection(2);
+  let total = billingPlan.billing.price;
   const extractPrice = (add) => {
     const { price, suffix } = add[billingPlan.duration];
     return { price, suffix };
@@ -36,6 +37,7 @@ const FourthStep = () => {
         <div className="flex flex-col gap-2 mb-4">
           {addOns.map((add) => {
             const { price, suffix } = extractPrice(add);
+            total += price;
             return (
               <p
                 className="text-coolGray flex justify-between items-center font-Regular capitalize"
@@ -52,7 +54,9 @@ const FourthStep = () => {
       </div>
       <p className="font-Regular text-coolGray text-base flex justify-between items-center p-3 ">
         Total (per month){" "}
-        <span className="font-Bold text-purplishBlue md:text-xl">+$12/mo</span>
+        <span className="font-Bold text-purplishBlue md:text-xl">
+          +${total}/{billingPlan.billing.suffix}
+        </span>
       </p>
     </div>
   );
