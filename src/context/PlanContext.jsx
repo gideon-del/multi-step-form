@@ -21,8 +21,12 @@ const PlansContext = createContext({
 
 const PlanProvider = ({ children }) => {
   const [error, setError] = useState("");
+  const [completed, setCompleted] = useState(false);
   const clearError = () => {
     setError("");
+  };
+  const allFormCompleted = () => {
+    setCompleted(true);
   };
   const Forms = useMemo(
     () => [
@@ -130,6 +134,8 @@ const PlanProvider = ({ children }) => {
         currentSelection: selection[mainPlan[step]] || {},
         error,
         getSlection,
+        allFormCompleted,
+        completed,
       }}
     >
       {children}

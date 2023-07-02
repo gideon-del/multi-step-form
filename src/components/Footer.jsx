@@ -2,7 +2,7 @@
 import { usePlan } from "../context/PlanContext";
 
 const Footer = ({ OnClick }) => {
-  const { changeStep, steps } = usePlan();
+  const { changeStep, steps, allFormCompleted } = usePlan();
 
   return (
     <div className=" flex justify-between  items-center">
@@ -19,7 +19,9 @@ const Footer = ({ OnClick }) => {
           Next Step
         </button>
       ) : (
-        <button className=" next-btn">Confirm</button>
+        <button className=" next-btn" onClick={allFormCompleted}>
+          Confirm
+        </button>
       )}
     </div>
   );

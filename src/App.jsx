@@ -7,7 +7,7 @@ import Complete from "./components/Complete";
 
 function App() {
   const currentRef = useRef(null);
-  const { currentStep, error, steps } = usePlan();
+  const { currentStep, error, steps, completed } = usePlan();
   const submit = () => {
     if (!currentStep.validate) return;
     currentStep.validate(currentRef.current);
@@ -23,8 +23,17 @@ function App() {
             {error.trim().length !== 0 && (
               <p className="text-center text-red-500 fotn-Bold">{error}</p>
             )} */}
-            <Complete />
-            <Footer OnClick={submit} />
+            {completed ? (
+              <Complete />
+            ) : (
+              <>
+                {currentStep.ref ? <CurForm ref={currentRef} /> : <CurForm />}
+                {error.trim().length !== 0 && (
+                  <p className="text-center text-red-500 fotn-Bold">{error}</p>
+                )}
+              </>
+            )}
+            {!completed && <Footer OnClick={submit} />}
           </div>
         </section>
       </main>
