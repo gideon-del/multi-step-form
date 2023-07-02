@@ -3,6 +3,7 @@ import Steps from "./components/Steps";
 import Footer from "./components/Footer";
 import { useRef } from "react";
 import { usePlan } from "./context/PlanContext";
+import Complete from "./components/Complete";
 
 function App() {
   const currentRef = useRef(null);
@@ -18,10 +19,11 @@ function App() {
         <Steps />
         <section className=" flex-1 px-3 md:px-14 lg:px-18 md:pt-10 bg-ligthBlue md:bg-white w-fit">
           <div className="flex lg:max-w-3xl flex-col justify-between h-full">
-            {currentStep.ref ? <CurForm ref={currentRef} /> : <CurForm />}
+            {/* {currentStep.ref ? <CurForm ref={currentRef} /> : <CurForm />}
             {error.trim().length !== 0 && (
               <p className="text-center text-red-500 fotn-Bold">{error}</p>
-            )}
+            )} */}
+            <Complete />
             <Footer OnClick={submit} />
           </div>
         </section>
