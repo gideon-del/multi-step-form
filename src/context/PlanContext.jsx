@@ -7,7 +7,6 @@ import ThirdStep from "../components/ThirdStep";
 import FourthStep from "../components/FourthStep";
 import { addons, firstInputs, plans } from "../data";
 import { validate as valid } from "../lib/helpers";
-import { data } from "autoprefixer";
 
 const PlansContext = createContext({
   steps: 0,
